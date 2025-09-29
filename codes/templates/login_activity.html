@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Activity</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-text">Secure Login System</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="activity-container">
+    <div class="activity-header">
+      <h1><i class="fas fa-history"></i> Login Activity</h1>
+      <div class="user-info">
+        <p><strong>User:</strong> <span class="username">{{ user_info.username }}</span></p>
+        <p><strong>Account Created:</strong> {{ user_info.created_at }}</p>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <h2><i class="fas fa-list-alt"></i> Session History</h2>
+      
+      <div class="table-container">
+        <div class="table-header">
+          <div class="table-cell">Login Time</div>
+          <div class="table-cell">Logout Time</div>
+          <div class="table-cell">Status</div>
+        </div>
+        
+        {% for log in activity %}
+        <div class="table-row">
+          <div class="table-cell">
+            <i class="fas fa-sign-in-alt"></i>
+            {{ log.login_time }}
+          </div>
+          <div class="table-cell">
+            <i class="fas fa-sign-out-alt"></i>
+            {% if log.logout_time %}
+              {{ log.logout_time }}
+            {% else %}
+              <em>Not logged out</em>
+            {% endif %}
+          </div>
+          <div class="table-cell">
+            {% if log.logout_time %}
+              <span class="status-badge completed">Completed</span>
+            {% else %}
+              <span class="status-badge active">Active</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="/admin" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Dashboard
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script defer src="/static/passvalid.js"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-text">Secure Login System</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="registrationForm" action="/register" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <small id="passwordHelp" class="hint">Min 8 characters, 1 number, 1 uppercase, 1 symbol</small>
+
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="/">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
