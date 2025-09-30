@@ -16,6 +16,25 @@ The Secure Login System (SLS) is a web application designed to provide safe and 
 ---
 
 ## Screenshots
-
 ### Login Page
-![Login Page]()
+![Login Page](codes/static/vt_asset/loginpage.png)
+
+### Registration Page
+![Registration Page](codes/static/vt_asset/reg_page.png)
+
+### Admin Dashboard
+![Login Page](codes/static/vt_asset/admin_dash.png)
+
+### User Dashboard
+![Login Page](codes/static/vt_asset/user_dash.png)
+
+### reCAPTCHA
+![Login Page](codes/static/vt_asset/recaptca_proof.png)
+
+### About
+![Login Page](codes/static/vt_asset/about_page.png)
+
+### Database
+![Login Page](codes/static/vt_asset/user_db.png)
+
+
