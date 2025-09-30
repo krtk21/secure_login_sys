@@ -51,14 +51,13 @@ secure_login_sys/
 │   │   ├── style.css
 │   │   ├── passvalid.js
 │   │   └── vt_assets/        
-│   │       ├── image1.png
-│   │       ├── image2.png
-│   │       ├── image3.png
-│   │       ├── image4.png
-│   │       ├── image5.png
-│   │       ├── image6.png
-│   │       ├── image7.png
-│   │       └── image8.png
+│   │       ├── about_page.png
+│   │       ├── admin_dash.png
+│   │       ├── loginpage.png
+│   │       ├── recaptca_proof.png
+│   │       ├── reg_page.png
+│   │       ├── user_dash.png
+│   │       ├── user_db.png
 │   └── templates/            
 │       ├── index.html
 │       ├── about.html
