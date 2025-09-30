@@ -37,4 +37,37 @@ The Secure Login System (SLS) is a web application designed to provide safe and 
 ### Database
 ![Login Page](codes/static/vt_asset/user_db.png)
 
+## Project Structure
+```bash
+secure_login_sys/
+├── README.md                 
+├── requirements.txt          
+├── report.pdf                
+├── codes/                    
+│   ├── app.py                
+│   ├── config.py             
+│   ├── query.txt            
+│   ├── static/               
+│   │   ├── style.css
+│   │   ├── passvalid.js
+│   │   └── vt_assets/        
+│   │       ├── image1.png
+│   │       ├── image2.png
+│   │       ├── image3.png
+│   │       ├── image4.png
+│   │       ├── image5.png
+│   │       ├── image6.png
+│   │       ├── image7.png
+│   │       └── image8.png
+│   └── templates/            
+│       ├── index.html
+│       ├── about.html
+│       ├── register.html
+│       ├── admin_dashboard.html
+│       └── login_activity.html
+
+```
+---
+
+
 
