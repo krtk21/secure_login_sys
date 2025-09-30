@@ -67,6 +67,69 @@ secure_login_sys/
 
 ```
 ---
+## Setup Instructions
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/krtk21/secure_login_sys
+cd secure_login_sys
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+## 3. Setup mysql
+Create a database in mysql
+```sql
+cretate database vault;
+```
+Create table named user_role
+```sql
+ CREATE TABLE user_role(
+  id int PRIMARY KEY  AUTO_INCREMENT NOT NULL,
+  name varchar(50) UNIQUE NOT NULL
+)
+```
+Create table named user;
+```sql
+CREATE TABLE user (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(100) NOT NULL,
+  email_id VARCHAR(150) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role_id INT NOT NULL,
+  created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY username (username),
+  UNIQUE KEY email_id (email_id),
+  KEY role_id (role_id),
+  CONSTRAINT user_ibfk_1 FOREIGN KEY (role_id) REFERENCES user_role (id)
+```
+### 4. Configure Database in app.py
+
+Update this function with mysql credentials:
+
+```python
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="K@rthik2147",
+    database="vault"
+)
+cursor = conn.cursor(dictionary=True)
+```
+### 5. Run the Application
+
+```bash
+python codes/app.py
+```
+The app will run at:
+```cpp
+http://127.0.0.1:5000/
+
+```
+
 
 
 
