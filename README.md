@@ -37,6 +37,9 @@ The Secure Login System (SLS) is a web application designed to provide safe and 
 ### Database
 ![Login Page](codes/static/vt_asset/user_db.png)
 
+### Activity Table
+![Login Page](codes/static/vt_asset/activity_table.png)
+
 ## Project Structure
 ```bash
 secure_login_sys/
@@ -53,6 +56,7 @@ secure_login_sys/
 │   │   └── vt_assets/        
 │   │       ├── about_page.png
 │   │       ├── admin_dash.png
+│   │       ├── activity_table.png
 │   │       ├── loginpage.png
 │   │       ├── recaptca_proof.png
 │   │       ├── reg_page.png
@@ -91,7 +95,7 @@ Create table named user_role
   name varchar(50) UNIQUE NOT NULL
 )
 ```
-Create table named user;
+Create table named user
 ```sql
 CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
@@ -104,7 +108,21 @@ CREATE TABLE user (
   UNIQUE KEY username (username),
   UNIQUE KEY email_id (email_id),
   KEY role_id (role_id),
-  CONSTRAINT user_ibfk_1 FOREIGN KEY (role_id) REFERENCES user_role (id)
+  CONSTRAINT user_ibfk_1 FOREIGN KEY (role_id) REFERENCES user_role (id));
+```
+Create table named login_activity
+```sql
+CREATE TABLE login_activity (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT DEFAULT NULL,
+  username_snapshot VARCHAR(100) DEFAULT NULL,
+  login_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  logout_time TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY user_id (user_id),
+  CONSTRAINT login_activity_ibfk_1 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE SET NULL
+);
+
 ```
 ### 4. Configure Database in app.py
 
